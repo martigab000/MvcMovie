@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-                powershell(script: 'docker images -a')
+                powershell 'docker images -a'
                 powershell(script: """
                     cd Documents/GetLab/MvcMovie
                     docker images -a
