@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-                ps(script: 'docker images -a')
-                ps(script: """
+                pwsh(script: 'docker images -a')
+                pwsh(script: """
                     cd documents
                     docker images -a
                     docker build -t mvcmovie .
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Start test app'){
             steps{
-                ps(script: """
+                pwsh(script: """
                     docker-compose up -d
                 """)
             }
@@ -35,14 +35,14 @@ pipeline {
         }
         stage('Run Tests'){
             steps {
-                ps(script: """
+                pwsh(script: """
                     pytest ./tests/test_sample.py
                 """)
             }
         }
         stage('Stop test app') {
             steps {
-                ps(script: """
+                pwsh(script: """
                     docker-compose down
                 """)
             }
