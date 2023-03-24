@@ -8,9 +8,9 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-                pwsh(script: 'docker images -a')
-                pwsh(script: """
-                    cd documents
+                powershell(script: 'docker images -a')
+                powershell(script: """
+                    cd Documents/GetLab/MvcMovie
                     docker images -a
                     docker build -t mvcmovie .
                     docker images -a
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Start test app'){
             steps{
-                pwsh(script: """
+                powershell(script: """
                     docker-compose up -d
                 """)
             }
@@ -35,14 +35,14 @@ pipeline {
         }
         stage('Run Tests'){
             steps {
-                pwsh(script: """
+                powershell(script: """
                     pytest ./tests/test_sample.py
                 """)
             }
         }
         stage('Stop test app') {
             steps {
-                pwsh(script: """
+                powershell(script: """
                     docker-compose down
                 """)
             }
