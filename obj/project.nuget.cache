@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3aU1REqjM0Dddv5RCIVt1Mxwf83c+xr+x+Kl1OTpEDyausm7fesD/4bknwKn6emqrLGbO563eRJl7NzuHRMuFQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gabriel.martin\\Documents\\GetLab\\MvcMovie\\MvcMovie.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gabriel.martin\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

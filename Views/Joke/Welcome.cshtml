@@ -1,0 +1,48 @@
+@using System.Collections.Generic
+
+@model Joke
+
+<h2>Welcome</h2>
+
+<ul>
+    @{
+        var Info = (List<Joke>)ViewData["collects"] ?? new List<Joke>();
+        //var data = ViewData["data"];
+    }
+    @using (Html.BeginForm("Welcome", "Joke", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="text" name="ID" id="ID" placeholder="Enter ID">
+            <button type="submit">Submit</button>
+        }
+</ul>
+
+<body>
+    
+
+    <div class="row justify-countent-center">
+        <div class="col-auto">
+            <div class="table-reponsive-md">
+                <table class="table table-striped table-hover d-flex p-2">
+                    <tbody>
+                        <tr>
+                            <th>type</th>
+                            <th>setup</th>
+                            <th>punchline</th>
+                            <th>id</th>
+                        </tr>
+                        @foreach (var joke in Info)
+                        {
+                            <tr>
+                                <td>@joke.type</td>
+                                <td>@joke.setup</td>
+                                <td>@joke.punchline</td>
+                                <td>@joke.id</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
